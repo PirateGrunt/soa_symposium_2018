@@ -1,0 +1,142 @@
+---
+title: "Statistical Models and the Zen Mountain"
+output: 
+  revealjs::revealjs_presentation:
+    theme: solarized
+    center: no
+    transition: slide
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+    echo = FALSE
+  , warning = FALSE
+  , message = FALSE
+)
+
+library(tidyverse)
+library(gridExtra)
+```
+
+## Agenda
+
+* Seeing numbers
+* Seeing hypotheses
+* Seeing models
+
+# Seeing numbers
+
+## The Zen mountain
+
+“Before I studied Zen, I saw mountains as mountains and rivers as rivers. When I had studied Zen for thirty years I no longer saw mountains as mountains and rivers as rivers. But now that I have finally mastered Zen, I once again see mountains as mountains and rivers as rivers.”
+
+> Ch’an master Ch’ing Yuan
+
+## Seeing a thing is not the same as seeing a thing
+
+```{r}
+knitr::include_graphics('images/oldenburg.jpg')
+```
+
+http://plotnickdm.blogspot.com/2010/11/claes-oldenburg.html
+
+## The Treachery of Images
+
+```{r}
+knitr::include_graphics('images/MagrittePipe.jpg')
+```
+
+By Image taken from a University of Alabama site, "Approaches to Modernism": [1], Fair use, https://en.wikipedia.org/w/index.php?curid=555365
+
+## Visual representation of the number 17
+
+## Sanskrit
+
+```{r}
+# knitr::include_graphics()
+```
+
+## Binary
+
+## Bavarian
+
+## 
+
+Arabic/sanskrit no more legitimate than any other representation
+
+_We can no more see numbers than we can hear, smell or taste them._
+
+## Many numbers - statistics
+
+Statistics maps a set of many numbers into a smaller set of numbers.
+
+_The summary is not the same as all of the numbers!!_
+
+##
+
+```{r}
+tbl_obs <- tibble(
+  observations = rnorm(10e3)
+)
+
+tbl_obs$observations %>% 
+  summary()
+```
+
+## Many numbers visually
+
+```{r}
+plt_hist <- tbl_obs %>% 
+  ggplot(aes(observations)) + 
+  geom_histogram()
+```
+
+
+# Seeing hypotheses
+
+## 
+
+Stats always compared to prior belief. Requires assumptions
+
+1. Form of distribution
+2. Parameters ==> Moments of distribution
+
+## 
+
+Histogram and pdf
+
+##
+
+Histogram and many pdfs
+
+## 
+
+We have just tested a model, visually
+
+## Kolmogorov-Smirnov
+
+```{r}
+
+```
+
+##
+
+_For stochastic processes, all of the numbers is not the same as the process!!_
+
+# Seeing models
+
+## 
+
+## Trees
+
+## Variable importance
+
+
+
+## Neural networks?
+
+# Conclusion
+
+## Wrapping up
+
+* 
