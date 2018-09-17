@@ -241,7 +241,8 @@ null_dist('x', 'gamma', params = list(shape = shape, rate = rate)) %>%
   mutate(sample = as.factor(.sample)) %>%
   ggplot(aes(x)) + 
   geom_histogram() + 
-  facet_wrap(~ sample)
+  facet_wrap(~ sample) + 
+  theme(axis.text.x = element_blank())
 ```
 
 ## Now?
