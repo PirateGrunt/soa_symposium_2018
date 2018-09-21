@@ -515,9 +515,20 @@ partialPlot(fit_tree, tbl_ozone_fixed, temp_sandburg)
 
 <!-- <div class = 'right'> -->
 ```{r}
+mojo <- partialPlot(fit_tree, tbl_ozone_fixed, temp_sandburg, plot = FALSE) %>% 
+  as.data.frame()
+
+range_mojo <- max(mojo$y) - min(mojo$y)
+range_ozone <- max(tbl_ozone$ozone) - min(tbl_ozone$ozone)
+
+mojo <- mojo %>% 
+  mutate(adj_y = (y - min(y)) * range_ozone / range_mojo) %>% 
+  mutate(adj_y = adj_y + min(tbl_ozone$ozone))
+
 tbl_ozone %>% 
   ggplot(aes(temp_sandburg, ozone)) + 
-  geom_point()
+  geom_point() + 
+  geom_line(data = mojo, aes(x, adj_y), color = 'red')
 ```
 <!-- </div> -->
 
