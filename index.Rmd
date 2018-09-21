@@ -41,19 +41,17 @@ Image taken from a University of Alabama site, "Approaches to Modernism": [1], F
 knitr::include_graphics('images/number_seven.png')
 ```
 
-## Scaling the Zen mountain
-
-“Before I studied Zen, I saw mountains as mountains and rivers as rivers. When I had studied Zen for thirty years I no longer saw mountains as mountains and rivers as rivers. But now that I have finally mastered Zen, I once again see mountains as mountains and rivers as rivers.”
-
-> Ch’an master Ch’ing Yuan
-
 ## We **cannot** see numbers
 
 Arabic or sanskrit are no more legitimate than any other representation of numbers.
 
 _We can no more see numbers than we can hear, smell or taste them._
 
-But looking at representations of numbers is **useful**.
+## Scaling the Zen mountain
+
+“Before I studied Zen, I saw mountains as mountains and rivers as rivers. When I had studied Zen for thirty years I no longer saw mountains as mountains and rivers as rivers. But now that I have finally mastered Zen, I once again see mountains as mountains and rivers as rivers.”
+
+> Ch’an master Ch’ing Yuan
 
 ## Many numbers - statistics
 
@@ -263,6 +261,20 @@ tbl_lineup_2 <- null_dist('x', 'weibull', params = list(shape = fit_weibull$esti
   mutate(sample = as.factor(.sample))
 
 tbl_lineup_2 %>% 
+  ggplot(aes(sample, x)) + 
+  geom_boxplot()
+```
+
+## A bit harder
+
+```{r}
+tbl_lineup_3 <- null_dist(
+    'x', 'log-normal', params = list(meanlog = meanlog_actual, sdlog = sdlog_actual)
+  ) %>% 
+  lineup(tbl_obs, pos = 14) %>% 
+  mutate(sample = as.factor(.sample))
+
+tbl_lineup_3 %>% 
   ggplot(aes(sample, x)) + 
   geom_boxplot()
 ```
@@ -498,13 +510,16 @@ partialPlot(fit_tree, tbl_ozone_fixed, temp_sandburg)
 
 ## Partial plots
 
+<!-- <div class = 'left'> -->
+<!-- </div> -->
+
+<!-- <div class = 'right'> -->
 ```{r}
 tbl_ozone %>% 
   ggplot(aes(temp_sandburg, ozone)) + 
   geom_point()
 ```
-
-<!-- ## Neural networks? -->
+<!-- </div> -->
 
 # Conclusion
 
